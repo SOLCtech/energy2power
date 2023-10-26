@@ -26,5 +26,5 @@ Must be executed with root privileges because in default system settings energy 
 28.6
 
 # ./cpu-power.sh core
-.3
+0.3
 ```

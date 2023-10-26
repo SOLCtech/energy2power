@@ -64,7 +64,7 @@ function calc_power() {
 	ENERGY_DIFF="$(echo "$ENERGY-$ENERGY_LAST" | bc)"
 
 	if [ "$(echo "$ENERGY_DIFF>0" | bc)" -eq 1 ]; then
-		echo "scale=1;$ENERGY_DIFF/$(get_time_diff_us)" | bc -l
+		echo "scale=1;$ENERGY_DIFF/$(get_time_diff_us)" | bc -l | sed 's/^\./0./'
 	else
 		COMPLEMENT="$(echo "$ENERGY_MAX-$ENERGY_LAST" | bc)"
 
@@ -73,7 +73,7 @@ function calc_power() {
 			exit 2
 		fi
 
-		echo "scale=1;($ENERGY+$COMPLEMENT)/$(get_time_diff_us)" | bc -l
+		echo "scale=1;($ENERGY+$COMPLEMENT)/$(get_time_diff_us)" | bc -l | sed 's/^\./0./'
 	fi
 }
 
