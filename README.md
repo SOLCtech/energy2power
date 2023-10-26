@@ -15,7 +15,7 @@ Must be executed with root privileges because in default system settings energy 
 
 ## Features
 * Using bc for precise math operations
-* Output in Watts with signle decimal precision
+* Output in Watts with single decimal precision
 * Energy counter overrun detection with max_energy_range_uj
 * Max. measuring interval hardcoded to 120 sec, after that saved last counter invalidates
 * Measures even at first run with no last data saved
