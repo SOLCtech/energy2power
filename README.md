@@ -13,6 +13,17 @@ Bash script to calculate average power of CPU by repeatedly reading sysfs's inte
 
 Must be executed with root privileges because in default system settings energy information is allowed read only by root.
 
+UPDATE: Or use _sysfsutils_ (if you know what you are doing):
+```script
+# cat /etc/sysfs.d/powercap.conf
+mode devices/virtual/powercap/intel-rapl/intel-rapl:0/energy_uj = 0440
+owner devices/virtual/powercap/intel-rapl/intel-rapl:0/energy_uj = root:powercap
+
+mode devices/virtual/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj = 0440
+owner devices/virtual/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj = root:powercap
+```
+Then run as user with _powercap_ group.
+
 ## Features
 * Using bc for precise math operations
 * Output in Watts with single decimal precision
